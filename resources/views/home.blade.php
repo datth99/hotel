@@ -42,8 +42,8 @@
             <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
                 <div class="panel panel-orange panel-widget border-right">
                     <div class="row no-padding"><em class="fa fa-xl fa-user color-red"></em>
-                        <div class="large">17</div>
-                        <div class="text-muted">Nhân viên</div>
+                        <div class="large">{{ $empty_room ? $empty_room : '0' }}</div>
+                        <div class="text-muted">Phòng còn trống</div>
                     </div>
                 </div>
             </div>
@@ -51,7 +51,7 @@
                 <div class="panel panel-red panel-widget ">
                     <div class="row no-padding"><em class="fa fa-xl fa-gear color-black"></em>
                         <div class="large">2</div>
-                        <div class="text-muted">Quản trị hệ thống</div>
+                        <div class="text-muted">Quản trị viên</div>
                     </div>
                 </div>
             </div>

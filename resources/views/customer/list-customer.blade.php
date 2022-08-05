@@ -51,6 +51,7 @@
             <td>
               <a href="customer/{{ $c->id }}/edit" type="button" class="btn btn-sm btn-primary"><em class="fa fa-edit">&nbsp;</em>Sửa</a>
               <a href="customer/{{ $c->id }}/delete" class="btn btn-sm btn-danger"><em class="fa fa-trash">&nbsp;</em>Xóa</a>
+              <a href="customer/{{ $c->id }}/history" class="btn btn-sm btn-success"><em class="fa fa-list">&nbsp;</em>Lịch sử thuê</a>
             </td>
           </tr>
         @endforeach

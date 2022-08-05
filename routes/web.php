@@ -5,6 +5,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SalaryController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\RegisterRoomController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 /*
@@ -27,6 +29,7 @@ Route::middleware('auth')->group(function(){
     Route::get('customer/{id}/edit',[CustomerController::class, 'edit'])->name('edit-customer');
     Route::post('customer/{id}/update',[CustomerController::class, 'update'])->name('update-customer');
     Route::get('customer/{id}/delete',[CustomerController::class, 'delete'])->name('delete-customer');
+    Route::get('customer/{id}/history',[CustomerController::class, 'history'])->name('history-order');
 
 
     Route::get('room',[RoomController::class, 'list'])->name('room');
@@ -49,6 +52,14 @@ Route::middleware('auth')->group(function(){
     Route::get('service/{id}/edit',[ServiceController::class, 'edit'])->name('edit-service');
     Route::post('service/{id}/update',[ServiceController::class, 'update'])->name('update-service');
     Route::get('service/{id}/delete',[ServiceController::class, 'delete'])->name('delete-service');
+
+    Route::get('register-room',[RegisterRoomController::class, 'index'])->name('register-room');
+    Route::post('register-room',[RegisterRoomController::class, 'store'])->name('register-room.store');
+
+    Route::get('order',[OrderController::class, 'index'])->name('order');
+
+    Route::get('order/{id}/payment',[OrderController::class, 'payment']);
+
 });
 
 Route::get('login',[AuthController::class, 'login']);

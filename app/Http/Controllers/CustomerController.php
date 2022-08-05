@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Customer;
+use App\Models\Order;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
@@ -51,6 +52,12 @@ class CustomerController extends Controller
         $customer = Customer::find($id);
         $customer->delete();
         return redirect('customer')->with('status','Xóa dữ liệu thành công');
+    }
+
+    public function history($id)
+    {
+        $order = Order::query()->select('*')->with(['customer', 'room', 'service'])->where('customer_id', '=', $id)->orderBy('id', 'DESC')->paginate(10);
+        return view('customer.list-history', compact('order'));
     }
 
 }
